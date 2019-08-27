@@ -17,6 +17,24 @@
   </head>
   <body>
     {% include "navbar.html" %}
+    {% if messages %}
+
+      {% for message in messages %}
+        {% if message.tags == "error" %} 
+            <div class="alert alert-danger" role="alert">
+  {{ message }}
+</div>
+{% else %}
+<div class="alert alert-primary" role="alert">
+  {{ message }}
+</div>
+        {% endif %}
+        
+        
+    
+      {% endfor %}
+
+    {% endif %}
     <div class="container">
       {% block content %}
         
